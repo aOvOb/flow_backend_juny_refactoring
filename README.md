@@ -3,16 +3,16 @@
 <br>
 <br>
 
-### [기존소스](https://github.com/aOvOb/flow_backend_juny) 
+### [기존소스링크](https://github.com/aOvOb/flow_backend_juny) 
 
 <br>
 <br>
 <br>
+
+---
+
 <br>
-
-=========================================================================================
-
-
+<br>
 
 
 ### 안녕하세요 서준희입니다.
