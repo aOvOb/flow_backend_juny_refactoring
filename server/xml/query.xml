@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="flow">
+
+  <!-- insert -->
+  <insert id="insertBanExt">
+    INSERT INTO fw_ext_ban 
+    (
+      SYS_ID, 
+      SYS_FLAG, 
+      SYS_CREATE_DATE, 
+      SYS_MODIFY_DATE, 
+      FW_EXT_NAME, 
+      FK_USER_ID
+    ) 
+    VALUES 
+    (
+      getNewID(), 
+      1, 
+      now(), 
+      now(), 
+      #{sInsertBanExt.FW_EXT_NAME}, 
+      '' 
+    );
+  </insert>
+
+  <insert id="insertFixedBanExt">
+    INSERT INTO fw_ext_ban_fixed
+    (
+      FIXED_EXT_NAME,
+      FIXED_EXT_VALUE,
+      SYS_CREATE_DATE,
+      SYS_MODIFY_DATE,
+      FK_USER_ID
+    )
+    VALUES
+    (
+      #{sInsertFixedBanExt.FIXED_EXT_NAME},
+      #{sInsertFixedBanExt.FIXED_EXT_VALUE},
+      now(),
+      now(),
+      ''
+    );
+  </insert>
+
+  <!-- select -->
+  <select id="getBannedExtList">
+    SELECT * FROM fw_ext_ban WHERE SYS_FLAG = 1;
+  </select>
+
+  <select id="selectFixedBanExt">
+    SELECT * FROM fw_ext_ban_fixed WHERE FIXED_EXT_NAME = #{sInsertFixedBanExt.FIXED_EXT_NAME};
+  </select>
+
+  <select id="selectFixedChecked">
+    SELECT * FROM fw_ext_ban_fixed WHERE FIXED_EXT_VALUE = "Y";
+  </select>
+
+  <!-- delete -->
+  <update id="deleteBannedExt">
+    UPDATE fw_ext_ban 
+    SET SYS_FLAG = 0 
+    WHERE SYS_ID = #{sDeleteExt.SYS_ID};
+  </update>
+
+  <!-- update -->
+  <update id="updateBannedExt">
+    UPDATE fw_ext_ban 
+    SET 
+    FW_EXT_NAME = #{sUpdateExt.FW_EXT_NAME},
+    SYS_MODIFY_DATE = now()
+    WHERE SYS_ID = #{sUpdateExt.SYS_ID}
+    AND SYS_FLAG = 1;
+  </update>
+
+  <update id="UpdateFixedBanExt">
+    UPDATE fw_ext_ban_fixed
+    SET
+    FIXED_EXT_VALUE = #{sInsertFixedBanExt.FIXED_EXT_VALUE},
+    SYS_MODIFY_DATE = now()
+    WHERE FIXED_EXT_NAME = #{sInsertFixedBanExt.FIXED_EXT_NAME};
+  </update>
+
+
+
+  <!-- search -->
+  <select id="searchExtByName">
+    ELECT * FROM names WHERE FW_EXT_NAME = #{sSearchExt.FW_EXT_NAME};
+  </select>
+
+
+</mapper>

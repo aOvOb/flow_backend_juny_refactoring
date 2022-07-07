@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <title>web app</title>
+</head>
+<body>
+    <main>   
+        <div>
+            <form action="/checkPost" method="get">
+                <label> 고정 확장자 
+                    <input id="bat" type="checkbox" name="check-btn" onchange="YnCheck(this);"> bat </label>
+                <label><input id="cmd" type="checkbox" name="check-btn" onchange="YnCheck(this);"> cmd </label>
+                <label><input id="com" type="checkbox" name="check-btn" onchange="YnCheck(this);"> com </label>
+                <label><input id="cpl" type="checkbox" name="check-btn" onchange="YnCheck(this);"> cpl </label>
+                <label><input id="exe" type="checkbox" name="check-btn" onchange="YnCheck(this);"> exe </label>
+                <label><input id="scr" type="checkbox" name="check-btn" onchange="YnCheck(this);"> scr </label>
+                <label><input id="js" type="checkbox" name="check-btn" onchange="YnCheck(this);"> js </label>
+            </form>
+        </div>
+        
+        <script>
+            function YnCheck(obj){
+                var checked = obj.checked;
+                if(checked){
+                    obj.value = "Y"
+                } else {
+                    obj.value = "N"
+                }
+            }
+        </script>
+        <br><br><br>
+        <!-- <div>
+           <input placeholder="search by name" id="search-input">
+           <button id="search-btn">Search</button>
+        </div> -->
+        <label>커스텀 확장자</label>
+        <input type="text" id="name-input" maxlength="20" oninput="handleOnInput(this)" placeholder="숫자와 영문만 입력 가능합니다." size="25">
+        <button id="add-name-btn" type="button" onClick="location.reload(true)"> + 추가</button>
+        <script>
+            function handleOnInput(e)  {
+                e.value = e.value.replace(/[^A-Za-z0-9]{0,20}/ig, '')
+            }
+        </script>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <table id="table">
+            <h5 id="loadedCount" style="text-align: right; color: gray;" ></h5>
+            <thead>
+                <!-- <th>ID</th> -->
+                <th>Name</th>
+                <!-- <th>Date Added</th> -->
+                <th>Delete</th>
+                <!-- <th>Edit</th> -->
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <section hidden id="update-row">
+            <label>Name:</label>
+            <input type="text" id="update-name-input">
+            <button id="update-row-btn">Update</button>
+        </section>
+    </main>
+    <script src="js/index.js"></script>
+</body>
+</html>
