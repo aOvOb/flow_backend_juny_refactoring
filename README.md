@@ -3,7 +3,8 @@
 <br>
 <br>
 
-### [기존소스링크](https://github.com/aOvOb/flow_backend_juny) 
+### [기존소스링크](https://github.com/aOvOb/flow_backend_juny)  
+링크 👉 [http://aovob.r-e.kr:1401/](http://aovob.r-e.kr:1401/) 
 
 <br>
 <br>
