@@ -2,7 +2,7 @@ let loadedData
     ,dupCheckFlag = null
 
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('http://localhost:1401/getAll')
+    fetch('152.70.38.206/getAll')
     .then(response => response.json())
     .then(data => loadHTMLTable(data))
     loadHTMLTable([])
@@ -23,7 +23,7 @@ document.querySelector('table tbody').addEventListener('click', function(event) 
 const updateBtn = document.querySelector('#update-row-btn')
 
 function deleteRowById(id) {
-    fetch('http://localhost:1401/delete/' + id, {
+    fetch('152.70.38.206/delete/' + id, {
         method: 'DELETE'
     })
     .then(response => response.json())
@@ -43,7 +43,7 @@ function handleEditRow(id) {
 updateBtn.onclick = function() {
     const updateNameInput = document.querySelector('#update-name-input')
 
-    fetch('http://localhost:1401/update', {
+    fetch('152.70.38.206/update', {
         method: 'PATCH',
         headers: {
             'Content-type' : 'application/json'
@@ -98,7 +98,7 @@ addBtn.onclick = function () {
         dupCheck(name)
 
         if(dupCheckFlag == null){
-            fetch('http://localhost:1401/insert', {
+            fetch('152.70.38.206/insert', {
                 headers: {
                     'Content-type': 'application/json'
                 },
@@ -200,7 +200,7 @@ const jsBtn = document.querySelector("#js")
 
 batBtn.onclick = function () {    
     batBtn.value == 'on' ? batBtn.value = 'Y' : batBtn.value == 'Y' ? batBtn.value = 'N' : batBtn.value ='Y' 
-    fetch('http://localhost:1401/insertFixed', {
+    fetch('152.70.38.206/insertFixed', {
         headers: {
             'Content-type': 'application/json'
         },
@@ -215,7 +215,7 @@ batBtn.onclick = function () {
 
 cmdBtn.onclick = function () {    
     cmdBtn.value == 'on' ? cmdBtn.value = 'Y' : cmdBtn.value == 'Y' ? cmdBtn.value = 'N' : cmdBtn.value ='Y' 
-    fetch('http://localhost:1401/insertFixed', {
+    fetch('152.70.38.206/insertFixed', {
         headers: {
             'Content-type': 'application/json'
         },
@@ -230,7 +230,7 @@ cmdBtn.onclick = function () {
 
 comBtn.onclick = function () {    
     comBtn.value == 'on' ? comBtn.value = 'Y' : comBtn.value == 'Y' ? comBtn.value = 'N' : comBtn.value ='Y' 
-    fetch('http://localhost:1401/insertFixed', {
+    fetch('152.70.38.206/insertFixed', {
         headers: {
             'Content-type': 'application/json'
         },
@@ -245,7 +245,7 @@ comBtn.onclick = function () {
 
 cplBtn.onclick = function () {    
     cplBtn.value == 'on' ? cplBtn.value = 'Y' : cplBtn.value == 'Y' ? cplBtn.value = 'N' : cplBtn.value ='Y' 
-    fetch('http://localhost:1401/insertFixed', {
+    fetch('152.70.38.206/insertFixed', {
         headers: {
             'Content-type': 'application/json'
         },
@@ -260,7 +260,7 @@ cplBtn.onclick = function () {
 
 exeBtn.onclick = function () {    
     exeBtn.value == 'on' ? exeBtn.value = 'Y' : exeBtn.value == 'Y' ? exeBtn.value = 'N' : exeBtn.value ='Y' 
-    fetch('http://localhost:1401/insertFixed', {
+    fetch('152.70.38.206/insertFixed', {
         headers: {
             'Content-type': 'application/json'
         },
@@ -275,7 +275,7 @@ exeBtn.onclick = function () {
 
 scrBtn.onclick = function () {    
     scrBtn.value == 'on' ? scrBtn.value = 'Y' : scrBtn.value == 'Y' ? scrBtn.value = 'N' : scrBtn.value ='Y' 
-    fetch('http://localhost:1401/insertFixed', {
+    fetch('152.70.38.206/insertFixed', {
         headers: {
             'Content-type': 'application/json'
         },
@@ -290,7 +290,7 @@ scrBtn.onclick = function () {
 
 jsBtn.onclick = function () {    
     jsBtn.value == 'on' ? jsBtn.value = 'Y' : jsBtn.value == 'Y' ? jsBtn.value = 'N' : jsBtn.value ='Y' 
-    fetch('http://localhost:1401/insertFixed', {
+    fetch('152.70.38.206/insertFixed', {
         headers: {
             'Content-type': 'application/json'
         },
